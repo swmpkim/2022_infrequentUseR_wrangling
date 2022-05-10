@@ -1,6 +1,6 @@
 # About the datasets  
 
-These datasets are subsets of real data from Grand Bay NERR. They are **not** appropriate for publishable analyses - I've cut out too much - but the full datasets and associated metadata **are** available from the Reserve upon request.  
+These datasets are subsets of real data, mostly from from Grand Bay NERR. They are **not** appropriate for publishable analyses - I've cut out too much - but the full datasets and associated metadata **are** available from the Reserve upon request.  
 
 ## **GNDfish**  
 ### Long-term fish monitoring: 2005-2014  
@@ -52,4 +52,19 @@ i.  *Species*: Vegetation species, Latin name (or 'other').
 j.  *Cover*: Ocular cover in percent, estimated for each species.  
 
 
+## GNDBCWQ  
+### Long-term water quality monitoring: 2004-present  
 
+Bayou Cumbest is one of four water quality stations at Grand Bay NERR that has been continually monitored as part of the NERRS System-Wide Monitoring Program (SWMP). Data from all Reserves' SWMP is available online at [cdmo.baruch.sc.edu](http://cdmo.baruch.sc.edu).  
+
+The files included here have not undergone any QA/QC; they are files downloaded directly from the YSI EXO2 dataloggers, through KOR v.2. We have very specific procedures for managing SWMP data but these general files straight off the sondes should be similar to what others dealing with such data will work with.  
+
+Files included are: `GNDBCWQ012422.csv` and `GNDBCWQ022422.csv`. Each file includes approximately a month's worth of 15-minute measurements.
+
+
+## *C. elegans* toxicity  
+### NOT a Reserve dataset  
+
+This is a small subset of data, modified from supplementary Table 2 of the publication:  
+
+Boyd, W. A., Smith, M. V., Co, C. A., Pirone, J. R., Rice, J. R., Shockley, K. R., & Freedman, J. H. (2016). Developmental effects of the ToxCast Phase I and Phase II chemicals in *Caenorhabditis elegans* and corresponding responses in zebrafish, rats, and rabbits. Environmental health perspectives, 124(5), 586-593. [https://doi.org/10.1289/ehp.1409645](https://doi.org/10.1289/ehp.1409645).

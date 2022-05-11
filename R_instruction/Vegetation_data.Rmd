@@ -1,0 +1,228 @@
+---
+title: "Vegetation"
+author: "Kim Cressman"
+date: "5/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(lubridate)
+```
+
+
+# Read in and join files  
+
+```{r}
+veg2018 <- read.csv(here::here("data", "GNDveg2018.csv"))
+veg2019 <- read.csv(here::here("data", "GNDveg2019.csv"))
+veg2020 <- read.csv(here::here("data", "GNDveg2020.csv"))
+```
+
+We have some options here: the base R function to use is `rbind()`. The tidyverse equivalent is `bind_rows()`. `bind_rows` has one particularly important advantage: it makes sure column names and classes match (if they do not, you'll get an error and can investigate your data). `rbind()` matches solely based on position: you'd better hope your columns are all in the same order.  
+
+```{r}
+# rbind way:
+test_bind <- rbind(veg2018, veg2019, veg2020)
+
+# remove that data frame; we won't use it
+rm(test_bind)
+
+# bind_rows way:
+veg_all <- bind_rows(veg2018, veg2019, veg2020)
+```
+
+`bind_rows()` also works on a list. Here, we'll create a list from the data frames we've already read in. A real-world use-case would be, you write a 'for loop' to read in several files, as components of a list.  
+
+```{r}
+veg_list <- list(veg2018, veg2019, veg2020)
+veg_all2 <- bind_rows(veg_list)
+
+# uncomment to remove, after you're satisfied this is the same as veg_all
+# rm(veg_all2, veg_list)
+```
+
+
+# Turn columns into the right classes  
+
+```{r}
+# remember what we've got  
+glimpse(veg_all)
+
+# do some mutating  
+veg_all <- veg_all %>% 
+    mutate(Date = ymd(Date),
+           SiteID = as.factor(SiteID),
+           TransectID = as.factor(TransectID),
+           PlotID = as.factor(PlotID),
+           Species = as.factor(Species))
+
+# see if it worked
+glimpse(veg_all)
+```
+
+To make the code a little shorter, you can use a function-within-a-function: `across()`:  
+
+```{r}
+veg_all2 <- bind_rows(veg2018, veg2019, veg2020) %>% 
+    mutate(Date = ymd(Date),
+           across(c(SiteID, TransectID, PlotID, Species), 
+                  as.factor))
+glimpse(veg_all2)
+
+# when you're done exploring veg_all2:
+# rm(veg_all2)
+```
+
+
+# Group and Summarize data  
+
+## Stats for cover of each species by site  
+
+```{r}
+veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    summarize(min_Cover = min(Cover, na.rm = TRUE),
+              mean_Cover = mean(Cover, na.rm = TRUE),
+              median_Cover = median(Cover, na.rm = TRUE),
+              max_Cover = max(Cover, na.rm = TRUE)) %>% 
+    knitr::kable()
+```
+
+
+The dplyr package also has a function called `arrange()`, which makes it easy to sort. Let's do the same thing as above, but sort from highest to lowest mean cover.  
+
+```{r}
+veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    summarize(min_Cover = min(Cover, na.rm = TRUE),
+              mean_Cover = mean(Cover, na.rm = TRUE),
+              median_Cover = median(Cover, na.rm = TRUE),
+              max_Cover = max(Cover, na.rm = TRUE)) %>% 
+    arrange(desc(mean_Cover)) %>% 
+    knitr::kable()
+```
+
+
+One way to make the code a little bit neater is to get rid of any 'NA' values in the dataset upfront, by filtering rows that contain 'NA' in the 'Cover' column. This means we don't have to include `na.rm = TRUE` in every line of our `summarize()` function.  
+
+```{r}
+veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    filter(!is.na(Cover)) %>% 
+    summarize(min_Cover = min(Cover),
+              mean_Cover = mean(Cover),
+              median_Cover = median(Cover),
+              max_Cover = max(Cover)) %>% 
+    arrange(desc(mean_Cover)) %>% 
+    knitr::kable()
+```
+
+
+And we can make the output neater by rounding mean_Cover. We can do this either when we create the summaries, using `round()`, or if you want to retain all the digits in the data frame, you can set the `digits` argument in the call to `knitr::kable()`.  
+
+```{r}
+veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    filter(!is.na(Cover)) %>% 
+    summarize(min_Cover = min(Cover),
+              mean_Cover = round(mean(Cover), 2),
+              median_Cover = median(Cover),
+              max_Cover = max(Cover)) %>% 
+    arrange(desc(mean_Cover)) %>% 
+    knitr::kable()
+
+# or:  
+veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    filter(!is.na(Cover)) %>% 
+    summarize(min_Cover = min(Cover),
+              mean_Cover = mean(Cover),
+              median_Cover = median(Cover),
+              max_Cover = max(Cover)) %>% 
+    arrange(desc(mean_Cover)) %>% 
+    knitr::kable(digits = 2)
+```
+
+`round` is the better option if you want different amounts of digits for different columns.  
+
+
+You are probably also thinking of better ways to display this table, or pieces of it. We'll get to that with pivoting. For now, let's save the data frame (the rounded-mean version).  
+
+Notice the call to `knitr::kable()` has been removed - that is only to format tables for display.  
+
+```{r}
+veg_summ <- veg_all %>% 
+    group_by(SiteID, Species) %>% 
+    filter(!is.na(Cover)) %>% 
+    summarize(min_Cover = min(Cover),
+              mean_Cover = round(mean(Cover), 2),
+              median_Cover = median(Cover),
+              max_Cover = max(Cover)) %>% 
+    arrange(desc(mean_Cover)) 
+```
+
+
+# Pivot to a wider shape  
+
+If you want to run an NMDS or PCA, you will probably need your species to be columns. Or if you want to display the mean cover values from our summary tables a little more nicely, with species as columns and sites as rows. In both cases, you want to take information from a row and turn it into a column name.  
+
+```{r}
+veg_wide <- veg_all %>% 
+    pivot_wider(names_from = Species,
+                values_from = Cover)
+```
+
+
+## Write that back out to csv  
+
+```{r}
+write.csv(veg_wide,
+          file = here::here("output", "veg_wide.csv"),
+          row.names = FALSE)  # row names are annoying
+```
+
+
+Maybe all you want is the mean for each species, at the site level, on each date. This combines our `group_by()` and `summarize()` steps with `pivot_wider()`.  
+
+```{r}
+veg_wide_summ <- veg_all %>% 
+    group_by(SiteID, Date, Species) %>% 
+    summarize(Cover = mean(Cover, na.rm = TRUE)) %>% 
+    pivot_wider(names_from = Species,
+                values_from = Cover)
+```
+
+Oh, look what happened though - sometimes different transects within a site had to be completed over multiple days, so we have multiple rows of output for the same year. What we really want to group by isn't date, it's year. lubridate package to the rescue!  
+
+```{r}
+veg_wide_summ <- veg_all %>% 
+    mutate(Year = year(Date)) %>%  # year() is the function
+    group_by(SiteID, Year, Species) %>% 
+    summarize(Cover = round(mean(Cover, na.rm = TRUE), 2)) %>% 
+    pivot_wider(names_from = Species,
+                values_from = Cover)
+```
+
+That's more like it.  
+
+
+# Think about/code on your own  
+
+Which format (long or wide) is better for making the graphs you want to make from this dataset? Make some graphs!    
+
+```{r}
+
+```
+
+
+Which format best helps you present summaries of the data? Pivot the `veg_summ` data frame we made during the first `group_by()` and `summarize()` portion to show mean cover by species by site, however you think it would look best as a table.  
+
+```{r}
+
+```
+

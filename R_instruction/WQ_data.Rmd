@@ -1,0 +1,234 @@
+---
+title: "WQ data"
+author: "Kim Cressman"
+date: "5/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(lubridate)
+```
+
+# Read in data  
+
+## knowing how many extra header rows there are  
+
+```{r}
+bc_jan <- read.csv(here::here("data", "GNDBCWQ012422.csv"),
+                   skip = 8)
+```
+
+## NOT knowing how many rows there are, but knowing a value in the row you want to be the header  
+
+What is in our desired header row, that doesn't show up before? `Date`! Let's look for that in the first column.  
+
+Remember subsetting with square brackets? This is a situation where that's potentially easier than using `dplyr::select()`.  
+
+```{r}
+bc_test <- read.csv(here::here("data", "GNDBCWQ012422.csv"))
+str_which(bc_test[ , 1], "Date") # from the stringr package. grep is comparable in base R.
+```
+
+Now we've found it. Notice that `read.csv()` uses the first row of your file as headers by default, and we didn't turn that off: so row 8 in our data frame is actually row 9 of our .csv file, and we want to skip 8 rows to make that one the header.  
+
+I like to assign whatever I've found to a variable, and use *that* in the `skip` argument. You could use the `str_which` code there, but it gets messy. And more complicated if you later decide you need to figure out a different string to search for.  
+
+```{r}
+header_index <- str_which(bc_test[ , 1], "Date")
+
+bc_test2 <- read.csv(here::here("data", "GNDBCWQ012422.csv"),
+                   skip = header_index)
+
+# once you're satisfied that bc_test2 matches bc_jan, remove the test data frames
+# rm(bc_test, bc_test2)
+```
+
+
+## Reading in the 2nd file and binding them  
+
+Not sure if it's the same number of header rows, so I'm going to do the header_index thing again.
+
+```{r}
+test <- read.csv(here::here("data", "GNDBCWQ022422.csv"))
+header_index <- str_which(test[ , 1], "Date")
+rm(test)
+
+bc_feb <- read.csv(here::here("data", "GNDBCWQ022422.csv"),
+                   skip = header_index)
+```
+
+The names look gross but they're consistent, so we'll bind the files together before dealing with names.  
+
+```{r}
+bc_all <- bind_rows(bc_jan, bc_feb)
+```
+
+
+Deal with names. We could select and rename at the same time with `dplyr::select()`:  
+
+```{r}
+# first figure out what we're dealing with
+names(bc_all)
+
+bc_all %>% select(Site = Site.Name,
+                  Date = Date..MM.DD.YYYY.) %>% 
+    head()
+```
+
+I do that a LOT! But in this case, doing so requires us to type out all the old, difficult names. So for this data, I would select by position - using base R! - and then rename.  
+
+```{r}
+names(bc_all)
+
+bc_all2 <- bc_all[ , c(1:2, 5:7, 9:11, 13, 15:16)]
+
+# make sure I got the right columns; counting is hard
+glimpse(bc_all2)    
+
+# and rename:
+names(bc_all2) <- c("Date",
+                    "Time",
+                    "Depth_m",
+                    "DO_pct",
+                    "DO_mgl",
+                    "Sal_psu",
+                    "SpCond",
+                    "Turb",
+                    "ph",
+                    "Temp_C",
+                    "Battery_V")
+
+glimpse(bc_all2)
+```
+
+Oops! I typed pH as lower case! It's also possible to change just one name, using good old square bracket indexing:  
+
+```{r}
+names(bc_all2)[9] <- "pH"
+names(bc_all2)
+```
+
+That involved counting though; if you know the name you're trying to change and it's easy to type, you can use `dplyr::rename()`:  
+
+```{r}
+# first make my 'oops' names again:
+names(bc_all2) <- c("Date",
+                    "Time",
+                    "Depth_m",
+                    "DO_pct",
+                    "DO_mgl",
+                    "Sal_psu",
+                    "SpCond",
+                    "Turb",
+                    "ph",
+                    "Temp_C",
+                    "Battery_V")
+# confirm
+names(bc_all2)
+
+# rename using dplyr
+bc_all2 <- bc_all2 %>% 
+    rename(pH = ph)
+names(bc_all2)
+```
+
+That involved more typing, this time. But it can be useful when you're trying to make a lot of changes to your data frame at the same time.  
+
+
+# Group and summarize  
+
+Say we want daily average salinity:  
+
+```{r}
+bc_daily_sal <- bc_all2 %>% 
+    group_by(Date) %>% 
+    summarize(mean_Sal = mean(Sal_psu, na.rm = TRUE))
+```
+
+Say we want daily average salinity and DO_mgl:  
+
+```{r}
+bc_daily2 <- bc_all2 %>% 
+    group_by(Date) %>% 
+    summarize(mean_Sal = mean(Sal_psu, na.rm = TRUE),
+              mean_DO = mean(DO_mgl, na.rm = TRUE))
+```
+
+Let's see what this looks like.  
+
+```{r}
+ggplot(bc_daily2) +
+    geom_line(aes(x = Date, y = mean_Sal))
+```
+
+That got weird, huh?  
+
+
+
+
+Did you notice every time we ran `glimpse()` on this data frame, Date was a character? We need to turn it into an actual date. I like to do this as I'm reading a file in - verify that all the columns are the way I want them to be - but I wanted you to see what happens when you forget. If you get a graph like this, you should think to yourself, "Date is wrong."  
+
+Let's actually fix this in `bc_all2`, then re-make `bc_daily2`.  
+
+```{r}
+bc_all2 <- bc_all2 %>% 
+    mutate(Date = mdy(Date))
+glimpse(bc_all2)
+
+bc_daily2 <- bc_all2 %>% 
+    group_by(Date) %>% 
+    summarize(mean_Sal = mean(Sal_psu, na.rm = TRUE),
+              mean_DO = mean(DO_mgl, na.rm = TRUE))
+```
+
+Now let's try this again.  
+
+```{r}
+ggplot(bc_daily2) +
+    geom_line(aes(x = Date, y = mean_Sal, color = "Sal")) +
+    geom_line(aes(x = Date, y = mean_DO, color = "DO"))
+```
+
+
+### Summarize ALL THE THINGS  
+
+```{r}
+bc_daily_all <- bc_all2 %>% 
+    group_by(Date) %>% 
+    summarize(across(Depth_m:Battery_V,  # : makes a sequence
+                     mean, na.rm = TRUE))
+```
+
+With a little more effort, and some reading of the help file, we can get multiple summaries for each variable.  
+
+```{r}
+# ?across
+
+bc_daily_all <- bc_all2 %>% 
+    group_by(Date) %>% 
+    summarize(across(Depth_m:Battery_V,
+                     .fns = list(mean = ~mean(., na.rm = TRUE),
+                                 min = ~min(., na.rm = TRUE),
+                                 max = ~max(., na.rm = TRUE)
+                                 )
+                     )
+              )
+```
+
+This can lead to some cool graphs:  
+
+```{r}
+ggplot(bc_daily_all) +
+    geom_line(aes(x = Date, y = Sal_psu_min), col = "gray30") +
+    geom_line(aes(x = Date, y = Sal_psu_max), col = "gray30") +
+    geom_line(aes(x = Date, y = Sal_psu_mean), col = "blue", size = 2) +
+    labs(title = "Daily average, max, and min salinity at BC in early 2022",
+         y = "Salinity (psu)") +
+    theme_bw()
+```
+

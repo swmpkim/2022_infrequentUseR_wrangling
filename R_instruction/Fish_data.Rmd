@@ -1,0 +1,195 @@
+---
+title: "Fish data"
+author: "Kim Cressman"
+date: "5/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+# Read in data files  
+
+```{r}
+wq <- read.csv(here::here("data", "GNDfish_wq.csv"))
+sites <- read.csv(here::here("data", "GNDfish_sites.csv"))
+lengths <- read.csv(here::here("data", "GNDfish_lengths.csv"))
+```
+
+# Make a summary of # species caught by habitat, site and season/year  
+
+## 1. Join data frames together  
+
+This is NOT binding rows together like we did before. Here, we want to join data frames based on *matching fields*.  
+
+When you have a one-to-many relationship, you want to use a `full_join()`.  
+
+```{r}
+wq_with_habitats <- full_join(wq, sites,
+                              by = "site")
+```
+
+Now let's associate all that with our fish lengths. Because there are a heck of a lot of rows in the fish lengths table (8200 actually isn't all that many as these things go), we might want to subset our wq_with_habitats data frame before joining, so we don't add as many columns to each of these rows. We don't need any of the location information but we'll keep the rest of it.    
+
+```{r}
+fish_with_extras <- wq_with_habitats %>% 
+    select(-lat, -long, -location) %>% 
+    full_join(lengths,
+              by = c("collection_id", "site"))  # joining on 2 columns
+```
+
+Note that if the columns were named differently in the different data frames, we could specify that in the argument `by`.  
+
+Let's look at these data frames a little bit.  
+
+```{r}
+dim(wq)
+dim(lengths)
+dim(fish_with_extras)
+```
+
+Why are there more rows in `fish_with_extras` than in `lengths`? (Hint: do you always catch fish when you try?)  
+
+## 2. Group and Summarize  
+
+Now let's make a summary table.  
+
+```{r}
+fish_with_extras %>% 
+    group_by(habitat_type, site, year_sampled, season) %>% 
+    summarize(n_species = length(unique(species))) %>% 
+    knitr::kable()
+```
+
+That was a long table. If we only want to compare habitats, we can ignore site and year, and just get overall totals by season (although maybe you want to ignore that too).  
+
+```{r}
+fish_with_extras %>% 
+    group_by(habitat_type, season) %>% 
+    summarize(n_species = length(unique(species))) %>% 
+    knitr::kable()
+```
+
+Maybe we want not just the number of species, but how many individuals total (regardless of species):  
+
+```{r}
+fish_with_extras %>% 
+    group_by(habitat_type, season) %>% 
+    summarize(n_species = length(unique(species)),
+              n_individuals = n()) %>% 
+    knitr::kable()
+```
+
+
+# Pivot to a wider format  
+
+For something like nMDS, PCA, ANOSIM, PERMANOVA, etc - where you want species as columns.  
+
+Let's say for this table, we want to know the number of each species caught in each seine pull. `collection_id` is our unique identifier for each sampling event. We want to retain identifying wq and habitat information too.  
+
+So it's probably easiest to get a count by species for each `collection_id` within the `lengths` data frame before joining to the `wq_with_habitats` data frame. We could even pivot wider before joining, and make joining the last step.  
+
+There are many ways you could approach this; during free-coding time I encourage you to explore your other ideas. It is very important to think carefully about how you want to group and re-shape your data, and **make sure the results look the way you envisioned**.  
+
+```{r}
+counts_wide <- lengths %>% 
+    group_by(collection_id, species) %>% 
+    summarize(n = n()) %>%   # I often hightlight everything up to this pipe and make sure the long version came out the way I think it should have
+    pivot_wider(names_from = species,
+                values_from = n)
+```
+
+Take a look.  
+
+```{r, eval = FALSE}
+View(counts_wide)
+```
+
+There are a lot of NAs in there, which in some cases is appropriate. But we know, if there's not an entry for a species in the `lengths` data frame, that species wasn't present in the seine pull - so we want those cells to be 0. We can make that happen during the pivot.  
+
+```{r}
+# ?pivot_wider
+
+counts_wide <- lengths %>% 
+    group_by(collection_id, species) %>% 
+    summarize(n = n()) %>%  
+    pivot_wider(names_from = species,
+                values_from = n,
+                values_fill = 0)
+```
+
+```{r, eval = FALSE}
+View(counts_wide)
+```
+
+Great!  
+
+**Remember the row mis-match earlier? And how some seine pulls did not catch ANY fish?** We need to make sure those rows full of 0s show up in the data frame too. We can do this when we join to the `wq_with_habitats` data frame.  
+
+For this, we want to make the `wq_with_habitats` data frame the primary one: for every row in that data frame, we want the matching row in the `counts` data frame, or we want 0s. To do this, we will put `wq_with_habitats` first in the call to join, so it shows up to the left of `counts_wide` in our command: and we will use a `left_join()` to make it primary. 
+
+From the help file:  
+If a row in `x` matches multiple rows in `y`, all the rows in `y` will be
+returned once for each matching row in `x`
+
+```{r}
+counts_all <- left_join(wq_with_habitats, counts_wide,
+                        by = "collection_id")
+```
+
+Imagine that in the `counts_wide` data frame, `collection_id` was named something different: `ID`. Here's how you would join on that column with the different names (note that this code won't actually work). Note that the left column name and right column name match the left and right data frames.  
+
+```{r, eval = FALSE}
+left_join(wq_with_habitats, counts_wide,
+          by = c("collection_id" = "ID"))
+```
+
+
+Finally, to deal with those NAs, we'll put together some of what we've already learned in a new way: we'll use `across()` inside `mutate()` to choose species columns, and use `case_when()` to change NA values to 0s.  
+
+`case_when()` is a lot like `ifelse()`. But it works inside a pipe, and with across; so there's a lot less code to write. What we want to specify to R is:  
+
++  **if** a value in these columns is NA, *then* make it 0. **Else**, leave it untouched (as the real value).  
++  ....in the **case when** the value in the column is NA, make it 0. Otherwise, leave it untouched (as the real value).  
+
+
+```{r, eval = FALSE}
+counts_all2 <- counts_all %>% 
+    mutate(across(c('Lagodon rhomboides':ncol(counts_all)),
+                  is.numeric),
+           across(c('Lagodon rhomboides':ncol(counts_all)),
+                  ~ case_when(. > 5 ~ 1000,
+                              . == 0 ~ 500)
+                      )
+           )
+```
+
+
+# That didn't work. Join before pivoting.  
+
+When we pivot, we can fill in NAs with 0s. During joining, that didn't seem to be the case, and I couldn't write code to replace the NAs with 0s. It's DEFINITELY possible, but I haven't worked it out yet. So let's do the easier thing. This is why it's critically important to think about what you want in the end - and don't forget that **zeros ARE data**. Don't just ignore those empty rows.  
+
+**We need to capture all our sampling events, which are in the wq data frame.** We don't necessarily need all the wq information at this point; we just need to account for all the rows. So we'll do some.... dancing.    
+
+```{r}
+names(wq)
+counts_all2 <- wq %>% 
+    select(collection_id, season, year_sampled) %>% 
+    left_join(lengths,
+              by = "collection_id") %>% 
+    group_by(collection_id, species) %>% 
+    summarize(n = n()) %>% 
+    mutate(species = case_when(is.na(species) ~ "nothing_caught",
+                               TRUE ~ species)) %>% 
+    pivot_wider(names_from = species,
+                values_from = n,
+                values_fill = 0) %>% 
+    select(-nothing_caught)
+    
+```
+

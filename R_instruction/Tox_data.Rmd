@@ -1,0 +1,67 @@
+---
+title: "C. elegans Tox"
+author: "Kim Cressman"
+date: "5/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+dat <- read.csv(here::here("data", "C_elegans_tox.csv"))
+names(dat)
+```
+
+In this file, there are some chemical identifiers, and columns representing response of a certain organism to that chemical at a certain dose. These column names contain 4 separate pieces of information, each separated by an underscore:  
+
+1.  The organism: here, *C. elegans*; but the original file also included data on Zebrafish responses to the same chemicals.  
+2.  Response: in this subset, consistently the same; but could also be LEC, estimated slopes, other sorts of measurements.  
+3.  Dose: a number  
+4.  units: all the same here, uM; but doesn't have to be the same.  
+
+
+# Pivot_longer  
+
+We want to separate the different organisms, responses, doses, and units. But let's start simple, because most of the time you don't need to separate column names out. We'll just swing the response columns down into a single column.  
+
+`pivot_longer()` is the opposite of `pivot_wider()`: instead of specifying where your column names and cell values come from (`names_from = ` and `values_from = `), we're going to collapse the column names into a single column, and the cell values into another column. So we specify what we want those columns to be with `names_to = ` and `values_to = `.  
+
+```{r}
+dat_longish <- dat %>% 
+    pivot_longer(cols = "C.elegans_response_0.5_uM":"C.elegans_response_200_uM",
+                 names_to = "Variable",
+                 values_to = "Value")
+```
+
+The tidyr package has a useful function called `separate()`. When you have multiple pieces of information stored in a single column, you can separate them (surprise!) into different columns.  
+
+```{r}
+dat_long <- dat_longish %>% 
+    separate(Variable,
+             into = c("organism", "parameter", "dose", "units"),
+             sep = "_")
+```
+
+
+You should be able to make some good graphs now!  
+
+
+You can also separate within the `pivot_longer()` function - this is a less common need for me, but still useful to know:  
+
+```{r}
+# ?pivot_longer
+
+dat_long2 <- dat %>% 
+    pivot_longer(cols = "C.elegans_response_0.5_uM":"C.elegans_response_200_uM",
+                 names_to = c("organism", "parameter", "dose", "units"),
+                 names_sep = "_",
+                 values_to = "Value")
+```
+

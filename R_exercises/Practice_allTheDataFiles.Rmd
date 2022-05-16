@@ -1,0 +1,287 @@
+---
+title: "One big practice file"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(lubridate)
+```
+
+
+
+# Read in files  
+
+```{r}
+# penguins
+data(penguins)  # from the palmerpenguins package
+
+# veg
+veg2018 <- read.csv(here::here("data", "GNDveg2018.csv"))
+veg2019 <- read.csv(here::here("data", "GNDveg2019.csv"))
+veg2020 <- read.csv(here::here("data", "GNDveg2020.csv"))
+
+# fish
+fish_wq <- read.csv(here::here("data", "GNDfish_wq.csv"))
+fish_sites <- read.csv(here::here("data", "GNDfish_sites.csv"))
+fish_lengths <- read.csv(here::here("data", "GNDfish_lengths.csv"))
+
+# bcwq
+bc_jan <- read.csv(here::here("data", "GNDBCWQ012422.csv"),
+                   skip = 8)
+bc_feb <- read.csv(here::here("data", "GNDBCWQ022422.csv"),
+                   skip = 8)
+
+# C. elegans tox
+tox <- read.csv(here::here("data", "C_elegans_tox.csv"))
+```
+
+
+## On your data  
+
+**Add your data files to the mix here too!** No better way to learn a new skill than to apply it to the thing **you've** been needing it for! And if it's not working on your dataset, this workshop is a great place to get help.  
+
+```{r}
+
+
+```
+
+
+
+
+
+# 1. Intro to the data  
+
+Use `str()`, `dplyr::glimpse()`, and `summary()` (and any other favorite exploratory commands you know) on these data files to get familiar with what's in each of them.  
+
+Also, use what you learned from the Data Visualization portion of this workshop series to make some graphs!  
+
+Note: you can insert a new code chunk below with (windows) `Ctrl+Alt+I` or (mac) `Cmd+Alt+I`. If you prefer menus, go to `Code` in RStudio's toolbar, and select `Insert Chunk`.   
+
+```{r}
+
+
+```
+
+
+
+## On your data  
+
+Make sure you know how R sees the data file you read in!  
+
+```{r}
+
+
+```
+
+
+
+
+
+***  
+
+# 2. Poking and Prodding  
+
+
+
+
+
+***  
+
+# 3. Modifying  
+
+Add new fields to the data frames using `dplyr::mutate()`! Some things you might add:  
+
+To `fish_wq` and/or the `bcwq` data frames, add a column for temperature in Fahrenheit. You can calculate this from the temperature in Celsius.  
+
+```{r}
+
+
+```
+
+
+
+To the `penguins` data frame, add columns for bill length/depth and/or flipper length in inches; or maybe body mass in pounds.  
+
+```{r}
+
+
+```
+
+
+In one of the `veg` data frames, add a column for proportion of cover (vs. percent).  
+
+```{r}
+
+
+```
+
+
+## On your data  
+
+Are there any columns you want to add to or modify in your own data? Do that here. 
+
+```{r}
+
+
+```
+
+
+
+***  
+
+# 4. Binds/Joins: Combine data frames  
+
+## Binding rows: Veg and BCWQ  
+
+Use `dplyr::bind_rows()` to make a single data frame out of the three `veg` data frames; then use it to make a single data frame out of the two `bc` data frames.  
+
+```{r}
+
+
+```
+
+```{r}
+
+
+```
+
+
+## Matching Joins   
+
+Join the `fish_sites` data frame to the `fish_wq` data frame, so you have habitat and site information for every water quality/seine sample.  
+
+Which column(s) contain the information that should match across data frames?  
+
+```{r}
+
+
+```
+
+
+Now for a little more complicated of a challenge:  
+
+Take the data frame you just made, and subset it to only contain `collection_id`, `site`, `habitat`, `season`, and `year`. (Get rid of the water quality readings). Join that to the `fish_lengths` data frame - so every measured fish is associated with the appropriate site, habitat, season, and year it was caught.  
+
+```{r}
+
+
+```
+
+
+## On your data  
+
+Do any of your data frames need to be joined together? Do that here.  
+
+```{r}
+
+
+```
+
+
+
+
+
+
+***  
+
+# 5. Reshape/Pivot  
+
+## Make data wider  
+
+For community analyses like nMDS, PCA, ANOSIM, PERMANOVA, etc., you typically want species as columns. Sometimes your data is already shaped that way; in the workshop files that is not the case. Use `tidyr::pivot_wider()` to widen out the `veg` data frame, so that each column is a species and each row is the percent cover of that species (in the given plot, on the given date).  
+
+```{r}
+
+
+```
+
+
+To widen out the fish data, we would do better to group and summarize first, to generate counts (or mean lengths, or whatever we want). Grouping and summarizing will come later in the workshop, but these pivoting skills will still apply!  
+
+
+## Make data longer  
+
+Practice with the `tox` data frame, so that each response value (to each chemical) is on its own row, with the descriptive columns `species`, `variable`, `dose`, and `units` as identifying columns.  
+
+```{r}
+
+
+```
+
+
+
+
+
+## On your data  
+
+Does your data need reshaping? Do that here.  
+
+```{r}
+
+
+```
+
+
+
+
+
+
+***  
+
+# 6. Group and Summarize  
+
+For the `bcwq` data (one of the original data frames or the combined one, if you joined them in section 4 above), calculate daily average salinity and/or DO_mgl.    
+
+Hint: use `lubridate::mdy()` to turn the Date column from a character string to an actual date.  
+
+```{r}
+
+
+```
+
+
+For `veg` data, make a summary of species cover by site and/or year.  
+
+```{r}
+
+
+```
+
+
+
+## On your data  
+
+I **know** you have summary statistics you want to generate from your data. Do [some of] that here.  
+
+```{r}
+
+
+```
+
+
+
+# Things to think about with your own data  
+
+Which format (long or wide) is better for making the graphs you want to make from your dataset? Make some graphs!    
+
+```{r}
+
+
+```
+
+
+Which format best helps you present summaries of your data? Do you need to pivot your original data, or a summary of your data, to make a nice table to for a presentation or paper? Practice that here.   
+
+```{r}
+
+
+```
+
+

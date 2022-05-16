@@ -1,0 +1,360 @@
+"Reserve","Date","SiteID","TransectID","PlotID","Lat","Long","Orthometric Height","Species","Cover"
+"GND",2019-08-13,"juro mid",1,1,30.3977323,-88.41248831,0.34721,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,1,30.3977323,-88.41248831,0.34721,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,1,30.3977323,-88.41248831,0.34721,"Juncus roemerianus",5
+"GND",2019-08-13,"juro mid",1,1,30.3977323,-88.41248831,0.34721,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,1,30.3977323,-88.41248831,0.34721,"Other",25
+"GND",2019-08-13,"juro mid",1,2,30.39772896,-88.41277222,0.32548,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,2,30.39772896,-88.41277222,0.32548,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,2,30.39772896,-88.41277222,0.32548,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",1,2,30.39772896,-88.41277222,0.32548,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,2,30.39772896,-88.41277222,0.32548,"Other",0
+"GND",2019-08-13,"juro mid",1,3,30.39772237,-88.41303842,0.31555,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,3,30.39772237,-88.41303842,0.31555,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,3,30.39772237,-88.41303842,0.31555,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",1,3,30.39772237,-88.41303842,0.31555,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,3,30.39772237,-88.41303842,0.31555,"Other",0
+"GND",2019-08-13,"juro mid",1,4,30.39772235,-88.41330132,0.30423,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,4,30.39772235,-88.41330132,0.30423,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,4,30.39772235,-88.41330132,0.30423,"Juncus roemerianus",40
+"GND",2019-08-13,"juro mid",1,4,30.39772235,-88.41330132,0.30423,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,4,30.39772235,-88.41330132,0.30423,"Other",0
+"GND",2019-08-13,"juro mid",1,5,30.39772069,-88.41356496,0.27133,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",1,5,30.39772069,-88.41356496,0.27133,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,5,30.39772069,-88.41356496,0.27133,"Juncus roemerianus",35
+"GND",2019-08-13,"juro mid",1,5,30.39772069,-88.41356496,0.27133,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,5,30.39772069,-88.41356496,0.27133,"Other",0
+"GND",2019-08-13,"juro mid",1,6,30.39772309,-88.41383569,0.32883,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",1,6,30.39772309,-88.41383569,0.32883,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,6,30.39772309,-88.41383569,0.32883,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",1,6,30.39772309,-88.41383569,0.32883,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,6,30.39772309,-88.41383569,0.32883,"Other",7.5
+"GND",2019-08-13,"juro mid",1,7,30.39772169,-88.41410544,0.3037,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",1,7,30.39772169,-88.41410544,0.3037,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,7,30.39772169,-88.41410544,0.3037,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",1,7,30.39772169,-88.41410544,0.3037,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,7,30.39772169,-88.41410544,0.3037,"Other",2.5
+"GND",2019-08-13,"juro mid",1,8,30.39771874,-88.41437691,0.28152,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",1,8,30.39771874,-88.41437691,0.28152,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,8,30.39771874,-88.41437691,0.28152,"Juncus roemerianus",45
+"GND",2019-08-13,"juro mid",1,8,30.39771874,-88.41437691,0.28152,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,8,30.39771874,-88.41437691,0.28152,"Other",0
+"GND",2019-08-13,"juro mid",1,9,30.3977159,-88.41463841,0.32016,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",1,9,30.3977159,-88.41463841,0.32016,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,9,30.3977159,-88.41463841,0.32016,"Juncus roemerianus",35
+"GND",2019-08-13,"juro mid",1,9,30.3977159,-88.41463841,0.32016,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,9,30.3977159,-88.41463841,0.32016,"Other",0
+"GND",2019-08-13,"juro mid",1,10,30.39771725,-88.41490834,0.30991,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",1,10,30.39771725,-88.41490834,0.30991,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,10,30.39771725,-88.41490834,0.30991,"Juncus roemerianus",35
+"GND",2019-08-13,"juro mid",1,10,30.39771725,-88.41490834,0.30991,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,10,30.39771725,-88.41490834,0.30991,"Other",2.5
+"GND",2019-08-13,"juro mid",1,11,30.39771323,-88.41516324,0.3083,"Borrichia frutescens",10
+"GND",2019-08-13,"juro mid",1,11,30.39771323,-88.41516324,0.3083,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",1,11,30.39771323,-88.41516324,0.3083,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",1,11,30.39771323,-88.41516324,0.3083,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,11,30.39771323,-88.41516324,0.3083,"Other",2.5
+"GND",2019-08-13,"juro mid",1,12,30.3977133,-88.41543022,0.40443,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",1,12,30.3977133,-88.41543022,0.40443,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",1,12,30.3977133,-88.41543022,0.40443,"Juncus roemerianus",10
+"GND",2019-08-13,"juro mid",1,12,30.3977133,-88.41543022,0.40443,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,12,30.3977133,-88.41543022,0.40443,"Other",10
+"GND",2019-08-13,"juro mid",1,13,30.39770915,-88.41569857,0.47042,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,13,30.39770915,-88.41569857,0.47042,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,13,30.39770915,-88.41569857,0.47042,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",1,13,30.39770915,-88.41569857,0.47042,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,13,30.39770915,-88.41569857,0.47042,"Other",5
+"GND",2019-08-13,"juro mid",1,14,30.39770707,-88.41599942,0.50555,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,14,30.39770707,-88.41599942,0.50555,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,14,30.39770707,-88.41599942,0.50555,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",1,14,30.39770707,-88.41599942,0.50555,"Spartina patens",0
+"GND",2019-08-13,"juro mid",1,14,30.39770707,-88.41599942,0.50555,"Other",5
+"GND",2019-08-13,"juro mid",1,15,30.39771168,-88.41626732,0.71186,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",1,15,30.39771168,-88.41626732,0.71186,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",1,15,30.39771168,-88.41626732,0.71186,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",1,15,30.39771168,-88.41626732,0.71186,"Spartina patens",20
+"GND",2019-08-13,"juro mid",1,15,30.39771168,-88.41626732,0.71186,"Other",40
+"GND",2019-08-13,"juro mid",2,1,30.39811446,-88.41278953,0.26325,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,1,30.39811446,-88.41278953,0.26325,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,1,30.39811446,-88.41278953,0.26325,"Juncus roemerianus",15
+"GND",2019-08-13,"juro mid",2,1,30.39811446,-88.41278953,0.26325,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,1,30.39811446,-88.41278953,0.26325,"Other",0
+"GND",2019-08-13,"juro mid",2,2,30.39811834,-88.41306344,0.30954,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",2,2,30.39811834,-88.41306344,0.30954,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",2,2,30.39811834,-88.41306344,0.30954,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",2,2,30.39811834,-88.41306344,0.30954,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,2,30.39811834,-88.41306344,0.30954,"Other",15
+"GND",2019-08-13,"juro mid",2,3,30.398117,-88.41332733,0.29859,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,3,30.398117,-88.41332733,0.29859,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,3,30.398117,-88.41332733,0.29859,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",2,3,30.398117,-88.41332733,0.29859,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,3,30.398117,-88.41332733,0.29859,"Other",5
+"GND",2019-08-13,"juro mid",2,4,30.39811713,-88.41361821,0.30798,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,4,30.39811713,-88.41361821,0.30798,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,4,30.39811713,-88.41361821,0.30798,"Juncus roemerianus",40
+"GND",2019-08-13,"juro mid",2,4,30.39811713,-88.41361821,0.30798,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,4,30.39811713,-88.41361821,0.30798,"Other",0
+"GND",2019-08-13,"juro mid",2,5,30.3981137,-88.41389347,0.28258,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",2,5,30.3981137,-88.41389347,0.28258,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,5,30.3981137,-88.41389347,0.28258,"Juncus roemerianus",10
+"GND",2019-08-13,"juro mid",2,5,30.3981137,-88.41389347,0.28258,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,5,30.3981137,-88.41389347,0.28258,"Other",17.5
+"GND",2019-08-13,"juro mid",2,6,30.39811023,-88.4141626,0.35014,"Borrichia frutescens",10
+"GND",2019-08-13,"juro mid",2,6,30.39811023,-88.4141626,0.35014,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",2,6,30.39811023,-88.4141626,0.35014,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",2,6,30.39811023,-88.4141626,0.35014,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,6,30.39811023,-88.4141626,0.35014,"Other",2.5
+"GND",2019-08-13,"juro mid",2,7,30.39811485,-88.41442421,0.37907,"Borrichia frutescens",15
+"GND",2019-08-13,"juro mid",2,7,30.39811485,-88.41442421,0.37907,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",2,7,30.39811485,-88.41442421,0.37907,"Juncus roemerianus",20
+"GND",2019-08-13,"juro mid",2,7,30.39811485,-88.41442421,0.37907,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,7,30.39811485,-88.41442421,0.37907,"Other",5
+"GND",2019-08-13,"juro mid",2,8,30.39811357,-88.41469023,0.4923,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,8,30.39811357,-88.41469023,0.4923,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,8,30.39811357,-88.41469023,0.4923,"Juncus roemerianus",15
+"GND",2019-08-13,"juro mid",2,8,30.39811357,-88.41469023,0.4923,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,8,30.39811357,-88.41469023,0.4923,"Other",20
+"GND",2019-08-13,"juro mid",2,9,30.39810911,-88.41495905,0.54157,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",2,9,30.39810911,-88.41495905,0.54157,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,9,30.39810911,-88.41495905,0.54157,"Juncus roemerianus",5
+"GND",2019-08-13,"juro mid",2,9,30.39810911,-88.41495905,0.54157,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,9,30.39810911,-88.41495905,0.54157,"Other",20
+"GND",2019-08-13,"juro mid",2,10,30.39810695,-88.41524306,0.49205,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,10,30.39810695,-88.41524306,0.49205,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,10,30.39810695,-88.41524306,0.49205,"Juncus roemerianus",20
+"GND",2019-08-13,"juro mid",2,10,30.39810695,-88.41524306,0.49205,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,10,30.39810695,-88.41524306,0.49205,"Other",5
+"GND",2019-08-13,"juro mid",2,11,30.39810731,-88.41549465,0.41218,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",2,11,30.39810731,-88.41549465,0.41218,"Distichlis spicata",5
+"GND",2019-08-13,"juro mid",2,11,30.39810731,-88.41549465,0.41218,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",2,11,30.39810731,-88.41549465,0.41218,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,11,30.39810731,-88.41549465,0.41218,"Other",0
+"GND",2019-08-13,"juro mid",2,12,30.39810673,-88.41577172,0.50288,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",2,12,30.39810673,-88.41577172,0.50288,"Distichlis spicata",5
+"GND",2019-08-13,"juro mid",2,12,30.39810673,-88.41577172,0.50288,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",2,12,30.39810673,-88.41577172,0.50288,"Spartina patens",2.5
+"GND",2019-08-13,"juro mid",2,12,30.39810673,-88.41577172,0.50288,"Other",25
+"GND",2019-08-13,"juro mid",2,13,30.39810609,-88.41601477,0.66718,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",2,13,30.39810609,-88.41601477,0.66718,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",2,13,30.39810609,-88.41601477,0.66718,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",2,13,30.39810609,-88.41601477,0.66718,"Spartina patens",0
+"GND",2019-08-13,"juro mid",2,13,30.39810609,-88.41601477,0.66718,"Other",65
+"GND",2019-08-13,"juro mid",3,1,30.39824164,-88.41287804,0.34945,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,1,30.39824164,-88.41287804,0.34945,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,1,30.39824164,-88.41287804,0.34945,"Juncus roemerianus",15
+"GND",2019-08-13,"juro mid",3,1,30.39824164,-88.41287804,0.34945,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,1,30.39824164,-88.41287804,0.34945,"Other",17.5
+"GND",2019-08-13,"juro mid",3,2,30.39824136,-88.41313892,0.30209,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,2,30.39824136,-88.41313892,0.30209,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",3,2,30.39824136,-88.41313892,0.30209,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",3,2,30.39824136,-88.41313892,0.30209,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,2,30.39824136,-88.41313892,0.30209,"Other",2.5
+"GND",2019-08-13,"juro mid",3,3,30.39823965,-88.4134187,0.3194,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,3,30.39823965,-88.4134187,0.3194,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",3,3,30.39823965,-88.4134187,0.3194,"Juncus roemerianus",35
+"GND",2019-08-13,"juro mid",3,3,30.39823965,-88.4134187,0.3194,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,3,30.39823965,-88.4134187,0.3194,"Other",0
+"GND",2019-08-13,"juro mid",3,4,30.39823934,-88.41370256,0.30684,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",3,4,30.39823934,-88.41370256,0.30684,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",3,4,30.39823934,-88.41370256,0.30684,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",3,4,30.39823934,-88.41370256,0.30684,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,4,30.39823934,-88.41370256,0.30684,"Other",0
+"GND",2019-08-13,"juro mid",3,5,30.39824174,-88.41398076,0.32791,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,5,30.39824174,-88.41398076,0.32791,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,5,30.39824174,-88.41398076,0.32791,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",3,5,30.39824174,-88.41398076,0.32791,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,5,30.39824174,-88.41398076,0.32791,"Other",0
+"GND",2019-08-13,"juro mid",3,6,30.39824302,-88.41423903,0.34865,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,6,30.39824302,-88.41423903,0.34865,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,6,30.39824302,-88.41423903,0.34865,"Juncus roemerianus",25
+"GND",2019-08-13,"juro mid",3,6,30.39824302,-88.41423903,0.34865,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,6,30.39824302,-88.41423903,0.34865,"Other",0
+"GND",2019-08-13,"juro mid",3,7,30.39823974,-88.41450741,0.38154,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",3,7,30.39823974,-88.41450741,0.38154,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",3,7,30.39823974,-88.41450741,0.38154,"Juncus roemerianus",30
+"GND",2019-08-13,"juro mid",3,7,30.39823974,-88.41450741,0.38154,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,7,30.39823974,-88.41450741,0.38154,"Other",0
+"GND",2019-08-13,"juro mid",3,8,30.39823881,-88.41478316,0.41421,"Borrichia frutescens",2.5
+"GND",2019-08-13,"juro mid",3,8,30.39823881,-88.41478316,0.41421,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,8,30.39823881,-88.41478316,0.41421,"Juncus roemerianus",20
+"GND",2019-08-13,"juro mid",3,8,30.39823881,-88.41478316,0.41421,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,8,30.39823881,-88.41478316,0.41421,"Other",2.5
+"GND",2019-08-13,"juro mid",3,9,30.39824046,-88.4150522,0.38842,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",3,9,30.39824046,-88.4150522,0.38842,"Distichlis spicata",15
+"GND",2019-08-13,"juro mid",3,9,30.39824046,-88.4150522,0.38842,"Juncus roemerianus",5
+"GND",2019-08-13,"juro mid",3,9,30.39824046,-88.4150522,0.38842,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,9,30.39824046,-88.4150522,0.38842,"Other",0
+"GND",2019-08-13,"juro mid",3,10,30.39823791,-88.41531059,0.36764,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",3,10,30.39823791,-88.41531059,0.36764,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,10,30.39823791,-88.41531059,0.36764,"Juncus roemerianus",20
+"GND",2019-08-13,"juro mid",3,10,30.39823791,-88.41531059,0.36764,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,10,30.39823791,-88.41531059,0.36764,"Other",2.5
+"GND",2019-08-13,"juro mid",3,11,30.39823649,-88.41557888,0.48748,"Borrichia frutescens",5
+"GND",2019-08-13,"juro mid",3,11,30.39823649,-88.41557888,0.48748,"Distichlis spicata",2.5
+"GND",2019-08-13,"juro mid",3,11,30.39823649,-88.41557888,0.48748,"Juncus roemerianus",10
+"GND",2019-08-13,"juro mid",3,11,30.39823649,-88.41557888,0.48748,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,11,30.39823649,-88.41557888,0.48748,"Other",7.5
+"GND",2019-08-13,"juro mid",3,12,30.39823328,-88.41585501,0.74682,"Borrichia frutescens",0
+"GND",2019-08-13,"juro mid",3,12,30.39823328,-88.41585501,0.74682,"Distichlis spicata",0
+"GND",2019-08-13,"juro mid",3,12,30.39823328,-88.41585501,0.74682,"Juncus roemerianus",0
+"GND",2019-08-13,"juro mid",3,12,30.39823328,-88.41585501,0.74682,"Spartina patens",0
+"GND",2019-08-13,"juro mid",3,12,30.39823328,-88.41585501,0.74682,"Other",27.5
+"GND",2019-08-16,"spal",1,1,30.36247658,-88.41386526,0.18074,"Juncus roemerianus",30
+"GND",2019-08-16,"spal",1,1,30.36247658,-88.41386526,0.18074,"Spartina alterniflora",15
+"GND",2019-08-16,"spal",1,2,30.36235706,-88.41378556,0.1353,"Juncus roemerianus",20
+"GND",2019-08-16,"spal",1,2,30.36235706,-88.41378556,0.1353,"Spartina alterniflora",30
+"GND",2019-08-16,"spal",1,3,30.3622411,-88.41370314,0.14,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",1,3,30.3622411,-88.41370314,0.14,"Spartina alterniflora",40
+"GND",2019-08-16,"spal",1,4,30.36212274,-88.41361874,0.24731,"Juncus roemerianus",30
+"GND",2019-08-16,"spal",1,4,30.36212274,-88.41361874,0.24731,"Spartina alterniflora",5
+"GND",2019-08-16,"spal",1,5,30.36199438,-88.4135274,0.21889,"Juncus roemerianus",30
+"GND",2019-08-16,"spal",1,5,30.36199438,-88.4135274,0.21889,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",1,6,30.36186195,-88.41342683,0.24665,"Juncus roemerianus",25
+"GND",2019-08-16,"spal",1,6,30.36186195,-88.41342683,0.24665,"Spartina alterniflora",0
+"GND",2019-08-16,"spal",1,7,30.36173116,-88.41333113,0.12682,"Juncus roemerianus",30
+"GND",2019-08-16,"spal",1,7,30.36173116,-88.41333113,0.12682,"Spartina alterniflora",0
+"GND",2019-08-16,"spal",1,8,30.36161802,-88.4132541,0.19581,"Juncus roemerianus",35
+"GND",2019-08-16,"spal",1,8,30.36161802,-88.4132541,0.19581,"Spartina alterniflora",5
+"GND",2019-08-16,"spal",1,9,30.36148068,-88.41319061,0.15977,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",1,9,30.36148068,-88.41319061,0.15977,"Spartina alterniflora",40
+"GND",2019-08-16,"spal",2,1,30.36236958,-88.41415757,0.17158,"Juncus roemerianus",20
+"GND",2019-08-16,"spal",2,1,30.36236958,-88.41415757,0.17158,"Spartina alterniflora",20
+"GND",2019-08-16,"spal",2,2,30.36224308,-88.41406627,0.18832,"Juncus roemerianus",20
+"GND",2019-08-16,"spal",2,2,30.36224308,-88.41406627,0.18832,"Spartina alterniflora",10
+"GND",2019-08-16,"spal",2,3,30.36212885,-88.41398874,0.15649,"Juncus roemerianus",20
+"GND",2019-08-16,"spal",2,3,30.36212885,-88.41398874,0.15649,"Spartina alterniflora",10
+"GND",2019-08-16,"spal",2,4,30.36201357,-88.41389911,0.15055,"Juncus roemerianus",25
+"GND",2019-08-16,"spal",2,4,30.36201357,-88.41389911,0.15055,"Spartina alterniflora",0
+"GND",2019-08-16,"spal",2,5,30.36189699,-88.41382089,0.12093,"Juncus roemerianus",20
+"GND",2019-08-16,"spal",2,5,30.36189699,-88.41382089,0.12093,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",2,6,30.36176439,-88.41373195,0.21239,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",2,6,30.36176439,-88.41373195,0.21239,"Spartina alterniflora",35
+"GND",2019-08-16,"spal",2,7,30.36163337,-88.41362623,0.22299,"Juncus roemerianus",40
+"GND",2019-08-16,"spal",2,7,30.36163337,-88.41362623,0.22299,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",2,8,30.36152192,-88.41354977,0.23556,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",2,8,30.36152192,-88.41354977,0.23556,"Spartina alterniflora",30
+"GND",2019-08-16,"spal",2,9,30.36139026,-88.41345599,0.16066,"Juncus roemerianus",15
+"GND",2019-08-16,"spal",2,9,30.36139026,-88.41345599,0.16066,"Spartina alterniflora",15
+"GND",2019-08-16,"spal",3,1,30.36233333,-88.41437608,0.22769,"Juncus roemerianus",5
+"GND",2019-08-16,"spal",3,1,30.36233333,-88.41437608,0.22769,"Spartina alterniflora",30
+"GND",2019-08-16,"spal",3,2,30.36219041,-88.4142713,0.17384,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",3,2,30.36219041,-88.4142713,0.17384,"Spartina alterniflora",45
+"GND",2019-08-16,"spal",3,3,30.36206692,-88.41418827,0.16,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",3,3,30.36206692,-88.41418827,0.16,"Spartina alterniflora",40
+"GND",2019-08-16,"spal",3,4,30.36194461,-88.41409981,0.11109,"Juncus roemerianus",0
+"GND",2019-08-16,"spal",3,4,30.36194461,-88.41409981,0.11109,"Spartina alterniflora",25
+"GND",2019-08-16,"spal",3,5,30.36182487,-88.41401203,0.21919,"Juncus roemerianus",25
+"GND",2019-08-16,"spal",3,5,30.36182487,-88.41401203,0.21919,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",3,6,30.36170419,-88.41392963,0.23847,"Juncus roemerianus",35
+"GND",2019-08-16,"spal",3,6,30.36170419,-88.41392963,0.23847,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",3,7,30.36159093,-88.41384732,0.21096,"Juncus roemerianus",30
+"GND",2019-08-16,"spal",3,7,30.36159093,-88.41384732,0.21096,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",3,8,30.3614692,-88.41376253,0.22249,"Juncus roemerianus",35
+"GND",2019-08-16,"spal",3,8,30.3614692,-88.41376253,0.22249,"Spartina alterniflora",2.5
+"GND",2019-08-16,"spal",3,9,30.36130909,-88.41365703,0.22274,"Juncus roemerianus",25
+"GND",2019-08-16,"spal",3,9,30.36130909,-88.41365703,0.22274,"Spartina alterniflora",2.5
+"GND",2019-08-20,"juro low",1,1,30.37521128,-88.41172932,-0.11593,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,1,30.37521128,-88.41172932,-0.11593,"Juncus roemerianus",0
+"GND",2019-08-20,"juro low",1,1,30.37521128,-88.41172932,-0.11593,"Spartina alterniflora",10
+"GND",2019-08-20,"juro low",1,2,30.37520916,-88.41186431,0.3176,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,2,30.37520916,-88.41186431,0.3176,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",1,2,30.37520916,-88.41186431,0.3176,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,3,30.37520468,-88.41203823,0.28023,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,3,30.37520468,-88.41203823,0.28023,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",1,3,30.37520468,-88.41203823,0.28023,"Spartina alterniflora",2.5
+"GND",2019-08-20,"juro low",1,4,30.37520014,-88.41220353,0.26857,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,4,30.37520014,-88.41220353,0.26857,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",1,4,30.37520014,-88.41220353,0.26857,"Spartina alterniflora",5
+"GND",2019-08-20,"juro low",1,5,30.37519246,-88.41237079,0.25117,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,5,30.37519246,-88.41237079,0.25117,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",1,5,30.37519246,-88.41237079,0.25117,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,6,30.37519527,-88.41252715,0.0798,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,6,30.37519527,-88.41252715,0.0798,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",1,6,30.37519527,-88.41252715,0.0798,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,7,30.37518986,-88.4126759,0.18523,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,7,30.37518986,-88.4126759,0.18523,"Juncus roemerianus",35
+"GND",2019-08-20,"juro low",1,7,30.37518986,-88.4126759,0.18523,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,8,30.37519005,-88.41283856,0.19219,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,8,30.37519005,-88.41283856,0.19219,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",1,8,30.37519005,-88.41283856,0.19219,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,9,30.3751869771,-88.41299577,0.18926,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,9,30.3751869771,-88.41299577,0.18926,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",1,9,30.3751869771,-88.41299577,0.18926,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",1,10,30.37518288,-88.41316596,0.17226,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,10,30.37518288,-88.41316596,0.17226,"Juncus roemerianus",10
+"GND",2019-08-20,"juro low",1,10,30.37518288,-88.41316596,0.17226,"Spartina alterniflora",15
+"GND",2019-08-20,"juro low",1,11,30.37517936,-88.41334841,0.11849,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,11,30.37517936,-88.41334841,0.11849,"Juncus roemerianus",20
+"GND",2019-08-20,"juro low",1,11,30.37517936,-88.41334841,0.11849,"Spartina alterniflora",2.5
+"GND",2019-08-20,"juro low",1,12,30.37517557,-88.41350184,0.0858,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",1,12,30.37517557,-88.41350184,0.0858,"Juncus roemerianus",0
+"GND",2019-08-20,"juro low",1,12,30.37517557,-88.41350184,0.0858,"Spartina alterniflora",50
+"GND",2019-08-20,"juro low",2,1,30.37548889,-88.41184975,-0.07232,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,1,30.37548889,-88.41184975,-0.07232,"Juncus roemerianus",0
+"GND",2019-08-20,"juro low",2,1,30.37548889,-88.41184975,-0.07232,"Spartina alterniflora",10
+"GND",2019-08-20,"juro low",2,2,30.37548337,-88.41199947,0.29682,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,2,30.37548337,-88.41199947,0.29682,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",2,2,30.37548337,-88.41199947,0.29682,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,3,30.37547878,-88.41215667,0.3245,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,3,30.37547878,-88.41215667,0.3245,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",2,3,30.37547878,-88.41215667,0.3245,"Spartina alterniflora",10
+"GND",2019-08-20,"juro low",2,4,30.37548124,-88.41233044,0.32036,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,4,30.37548124,-88.41233044,0.32036,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",2,4,30.37548124,-88.41233044,0.32036,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,5,30.37547506,-88.41248228,0.28299,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,5,30.37547506,-88.41248228,0.28299,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",2,5,30.37547506,-88.41248228,0.28299,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,6,30.37547385,-88.41265477,0.2612,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,6,30.37547385,-88.41265477,0.2612,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",2,6,30.37547385,-88.41265477,0.2612,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,7,30.37546388,-88.41280593,0.2454,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,7,30.37546388,-88.41280593,0.2454,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",2,7,30.37546388,-88.41280593,0.2454,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,8,30.37546563,-88.41297492,0.27756,"Distichlis spicata",2.5
+"GND",2019-08-20,"juro low",2,8,30.37546563,-88.41297492,0.27756,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",2,8,30.37546563,-88.41297492,0.27756,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,9,30.37546243,-88.41315654,0.24236,"Distichlis spicata",2.5
+"GND",2019-08-20,"juro low",2,9,30.37546243,-88.41315654,0.24236,"Juncus roemerianus",30
+"GND",2019-08-20,"juro low",2,9,30.37546243,-88.41315654,0.24236,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,10,30.37545978,-88.41329846,0.16526,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,10,30.37545978,-88.41329846,0.16526,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",2,10,30.37545978,-88.41329846,0.16526,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",2,11,30.37545057,-88.41343785,0.10782,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",2,11,30.37545057,-88.41343785,0.10782,"Juncus roemerianus",5
+"GND",2019-08-20,"juro low",2,11,30.37545057,-88.41343785,0.10782,"Spartina alterniflora",30
+"GND",2019-08-20,"juro low",3,1,30.37568986,-88.41189809,0.03764,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,1,30.37568986,-88.41189809,0.03764,"Juncus roemerianus",0
+"GND",2019-08-20,"juro low",3,1,30.37568986,-88.41189809,0.03764,"Spartina alterniflora",25
+"GND",2019-08-20,"juro low",3,2,30.37568332,-88.41206157,0.35699,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,2,30.37568332,-88.41206157,0.35699,"Juncus roemerianus",50
+"GND",2019-08-20,"juro low",3,2,30.37568332,-88.41206157,0.35699,"Spartina alterniflora",2.5
+"GND",2019-08-20,"juro low",3,3,30.37568347,-88.41222953,0.3199,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,3,30.37568347,-88.41222953,0.3199,"Juncus roemerianus",50
+"GND",2019-08-20,"juro low",3,3,30.37568347,-88.41222953,0.3199,"Spartina alterniflora",2.5
+"GND",2019-08-20,"juro low",3,4,30.37567825,-88.41238513,0.32371,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,4,30.37567825,-88.41238513,0.32371,"Juncus roemerianus",35
+"GND",2019-08-20,"juro low",3,4,30.37567825,-88.41238513,0.32371,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,5,30.37567943,-88.41255953,0.27531,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,5,30.37567943,-88.41255953,0.27531,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",3,5,30.37567943,-88.41255953,0.27531,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,6,30.37568072,-88.41272706,0.19571,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,6,30.37568072,-88.41272706,0.19571,"Juncus roemerianus",40
+"GND",2019-08-20,"juro low",3,6,30.37568072,-88.41272706,0.19571,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,7,30.37567156,-88.41287757,0.27735,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,7,30.37567156,-88.41287757,0.27735,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",3,7,30.37567156,-88.41287757,0.27735,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,8,30.37566929,-88.41303776,0.11283,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,8,30.37566929,-88.41303776,0.11283,"Juncus roemerianus",25
+"GND",2019-08-20,"juro low",3,8,30.37566929,-88.41303776,0.11283,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,9,30.37567237,-88.41319809,0.09309,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,9,30.37567237,-88.41319809,0.09309,"Juncus roemerianus",35
+"GND",2019-08-20,"juro low",3,9,30.37567237,-88.41319809,0.09309,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,10,30.37565759,-88.41337667,0.14682,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,10,30.37565759,-88.41337667,0.14682,"Juncus roemerianus",20
+"GND",2019-08-20,"juro low",3,10,30.37565759,-88.41337667,0.14682,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,11,30.37565442,-88.4135406,0.0245,"Distichlis spicata",0
+"GND",2019-08-20,"juro low",3,11,30.37565442,-88.4135406,0.0245,"Juncus roemerianus",10
+"GND",2019-08-20,"juro low",3,11,30.37565442,-88.4135406,0.0245,"Spartina alterniflora",0
+"GND",2019-08-20,"juro low",3,12,30.3756569,-88.41370338,0.12361,"Distichlis spicata",2.5
+"GND",2019-08-20,"juro low",3,12,30.3756569,-88.41370338,0.12361,"Juncus roemerianus",10
+"GND",2019-08-20,"juro low",3,12,30.3756569,-88.41370338,0.12361,"Spartina alterniflora",20

@@ -88,6 +88,52 @@ Make sure you know how R sees the data file you read in!
 
 # 2. Poking and Prodding  
 
+Make a subset of the `penguins` data frame that only includes the columns `species`, `bill_length_mm`, `flipper_length_mm`, and `body_mass_g`.  
+
+Hint: you can exclude columns by using a - inside `dplyr::select()`!  
+
+```{r}
+
+
+```
+
+
+Make a subset of the `penguins` data frame that only includes Adelie penguins.  
+
+```{r}
+
+
+```
+
+
+Combine the skills used above: make a subset of the `penguins` data frame that includes the columns `species`, `island`, `flipper_length_mm`, `body_mass_g`, and `sex`; and *only* includes Adelie penguins from the island Biscoe.  
+
+```{r}
+
+
+```
+
+
+From the `fish_wq` data frame, make a subset that only includes `site`, `season`, `year_sampled`, and `water_temp_c` from winter sampling events.  
+
+```{r}
+
+
+```
+
+
+
+
+## On your data  
+
+What subsets do you need to make from your data frame(s)?  
+
+```{r}
+
+
+```
+
+
 
 
 
@@ -153,7 +199,7 @@ Use `dplyr::bind_rows()` to make a single data frame out of the three `veg` data
 ```
 
 
-## Matching Joins   
+## Matching Joins: Fish and WQ   
 
 Join the `fish_sites` data frame to the `fish_wq` data frame, so you have habitat and site information for every water quality/seine sample.  
 
@@ -193,7 +239,7 @@ Do any of your data frames need to be joined together? Do that here.
 
 # 5. Reshape/Pivot  
 
-## Make data wider  
+## Make data wider: veg  
 
 For community analyses like nMDS, PCA, ANOSIM, PERMANOVA, etc., you typically want species as columns. Sometimes your data is already shaped that way; in the workshop files that is not the case. Use `tidyr::pivot_wider()` to widen out the `veg` data frame, so that each column is a species and each row is the percent cover of that species (in the given plot, on the given date).  
 
@@ -206,7 +252,7 @@ For community analyses like nMDS, PCA, ANOSIM, PERMANOVA, etc., you typically wa
 To widen out the fish data, we would do better to group and summarize first, to generate counts (or mean lengths, or whatever we want). Grouping and summarizing will come later in the workshop, but these pivoting skills will still apply!  
 
 
-## Make data longer  
+## Make data longer: tox  
 
 Practice with the `tox` data frame, so that each response value (to each chemical) is on its own row, with the descriptive columns `species`, `variable`, `dose`, and `units` as identifying columns.  
 

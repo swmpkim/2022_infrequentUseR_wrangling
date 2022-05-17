@@ -1,0 +1,310 @@
+---
+title: "One big practice file: Day 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(lubridate)
+library(broom)
+```
+
+
+
+# Read in files  
+
+```{r}
+# penguins
+data(penguins)  # from the palmerpenguins package
+
+# bcwq
+bc_jan <- read.csv(here::here("data", "GNDBCWQ012422.csv"),
+                   skip = 8)
+bc_feb <- read.csv(here::here("data", "GNDBCWQ022422.csv"),
+                   skip = 8)
+
+# fish
+fish_wq <- read.csv(here::here("data", "GNDfish_wq.csv"))
+```
+
+
+## On your data  
+
+**Add your data files to the mix here too!** No better way to learn a new skill than to apply it to the thing **you've** been needing it for! And if it's not working on your dataset, this workshop is a great place to get help.  
+
+```{r}
+
+
+```
+
+
+
+# An example of Simple Linear Regression  
+
+In which we know some things: DO mg/L is a calculated value, based on DO % saturation, temperature, and salinity.  
+
+## Ask a question  
+
+Our research questions here may be:  
++  is there a linear relationship between DO mg/L and DO %?  
++  what is the slope of that relationship?  
+
+We expect this to be a pretty straight line, but not perfect (because salinity and temperature matter). Let's see what this looks like, in various ways.  
+
+## Clean up bcwq data  
+
+```{r}
+bcwq <- bind_rows(bc_jan, bc_feb) 
+names(bcwq) <- c("Date", "Time", "TimeSec",
+                 "Site", "Depth", "DO_pct",
+                 "DO_mgl", "pressure", "Sal",
+                 "SpCond", "Turb", "Wiper",
+                 "pH", "pH_mV", "Temp",
+                 "Battery", "CablePwr")
+
+bcwq <- bcwq %>% 
+    mutate(DateTime = mdy_hms(paste(Date, Time)),   # this had to come before the date converstion itself
+           Date = mdy(Date)) %>% 
+    select(Date, DateTime, Depth, DO_pct, DO_mgl, Sal,
+           SpCond, Turb, pH, Temp, Battery)
+```
+
+## EDA  
+
+Know what we're getting into. See if there are outliers, and determine what to do about them (note: just deleting them, for the sole fact that they're outliers, is NOT appropriate - you need to understand what caused them).  
+
+```{r}
+plot(bcwq$DO_pct)
+plot(bcwq$DO_mgl)
+plot(bcwq$pH)
+plot(bcwq$Sal)
+```
+
+Ah, the sonde came out of water a couple times - this happens on very low tides at this station. **Reminder that knowing your data is important!** As is exploring it this way.  
+
+For simplicity, we'll exclude rows where DO_mgl is greater than 12. In the real world, you would want to be more careful about verifying and excluding potential out-of-water points (for SWMP, we do it through our QA/QC flag and code columns).  
+
+
+```{r}
+bcwq_qaqc <- bcwq %>% 
+    filter(DO_mgl < 12)
+```
+
+
+
+## Run the regression  
+
+
+One important assumption of linear regression is that **the relationship in question is actually linear** - not curved. You should be able to draw a straight line through your points.  
+
+
+```{r}
+fit1 <- lm(DO_mgl ~ DO_pct, data = bcwq_qaqc)
+plot(DO_mgl ~ DO_pct, data = bcwq_qaqc)
+```
+
+
+## Check assumptions  
+
+Penn State's STAT 501 course notes have very good information on assessing assumptions of linear prediction: https://online.stat.psu.edu/stat501/lesson/4  
+
+They actually lay out all the assumptions above using the acronym **LINE**:  
+
++  **L**: linear relationship between your response and predictor(s)  
++  **I**: independent errors (residuals) (no patterns like "bigger residuals when predictions are bigger"; no autocorrelation)  
++  **N**: normally distributed errors (residuals)  
++  **E**: equal variance of errors (residuals) 
+
+
+We assessed the **L** condition above, with a plot of our data. Now to check the other conditions by looking at plots of residuals:  
+
+
+```{r}
+hist(residuals(fit1), breaks = 20)
+
+# we don't want to see patterns in residuals: the next couple of plots 
+# should just be random scatter.
+# We *do* want the points in the QQ plot to follow a line.
+plot(fit1)
+```
+
+
+Okay, these assumptions look reasonable.  
+
+
+### Something that (should) look bad:  
+
+I'm going to make up some data that has a relationship, but not a simple linear one. This one is curved. We'll investigate the residuals of this too, so you can see what bad ones look like.    
+
+```{r}
+x <- seq(from = 1, to = 50, length.out = 1000)
+y <- 2*(x^2) + x - rnorm(n = length(x), mean = 10, sd = 100)
+plot(y ~ x)
+fit2 <- lm(y ~ x)
+plot(fit2)
+```
+
+
+**Notice: we haven't even mentioned p-values yet.**  
+
+**It is critical to assess assumptions of your statistical model to make sure it is appropriate BEFORE drawing any inferences.**  
+
+If assumptions aren't met (especially the normality one), there are other statistical methods you can use! Many universities have a statistical consulting center; reach out!  
+
+Our model above was appropriate though, so we'll continue.  
+
+## Investigate model output  
+
+Now it's time to look at output:  
+
+```{r}
+fit1
+```
+
+All this means is that, if we were to write the equation describing the two parameters, it would look like:  
+
+DO_pct = 0.089*DO_mgL - 0.126
+
+We get lots more information from the `summary()` function:  
+
+```{r}
+summary(fit1)
+fit1_summ <- summary(fit1)
+```
+
+And if you have categorical predictors (is there a difference in size between group A and group B?) and just want to run an ANOVA, you get the ANOVA table thusly:  
+
+```{r}
+anova(fit1)
+```
+
+
+### Remember our friend, the list?  
+
+You probably don't want to copy and paste, or re-type, all the coefficients and p-values you get. It is useful to be able to pull out the pieces of output you want. Statistical output is stored in a list format; and exactly how it is structured depends on the package and the test that you are using.  
+
+```{r}
+# coefficients
+fit1$coefficients
+
+# just want the slope?  
+fit1$coefficients[2]
+
+# p-values etc. from the summary:
+
+# more detail from the coefficients table: standard errors etc.
+fit1_summ$coefficients
+
+fit1_summ$r.squared
+
+fit1_summ$adj.r.squared
+```
+
+
+### The easier way: {broom}  
+
+```{r}
+broom::glance(fit1)
+broom::tidy(fit1)
+```
+
+
+This gets even more useful with multiple linear regression, or more complicated models.  
+
+
+# ANOVA (categorical predictors)  
+
+You can run ANOVA using the `lm()` format above, followed by `anova()` on the output. There's a bit of a shortcut: `aov()`. This is what's known as a wrapper function for the above.  
+
+
+## Ask a question  
+
+Research question: is body weight different between male and female Gentoo penguins?  
+
+```{r}
+gent <- penguins %>% 
+    filter(species == "Gentoo")
+```
+
+## EDA  
+
+```{r}
+boxplot(body_mass_g ~ sex, gent)
+```
+
+## Code the model  
+
+```{r}
+fit3 <- aov(body_mass_g ~ sex, gent)
+```
+
+## Check assumptions  
+
+```{r}
+# don't forget to check residuals:
+plot(fit3)
+```
+
+## Look at model output  
+
+```{r}
+
+fit3
+summary(fit3)
+
+glance(fit3)
+tidy(fit3)
+
+# only real problem with {broom} is it doesn't tell you what kind of statistic you're using
+# from summary(fit3), we see that it's F; with 1 and 117 degrees of freedom
+```
+
+
+# Don't forget: care about more than just a p-value  
+
+Other things to report are: sample size (from `glance`: 119, or get this from your data); the test statistic (from `summary`: F = 216.7 on 1 and 117 degrees of freedom); R^2 (0.649).  
+
+What are the mean and standard deviations of weights for both sexes? We found a statistically significant difference; how big is the difference in reality?   
+
+```{r}
+gent %>% 
+    filter(!is.na(body_mass_g),
+           !is.na(sex)) %>% 
+    group_by(sex) %>% 
+    summarize(mean_wt = mean(body_mass_g),
+              sd_wt = sd(body_mass_g),
+              min_wt = min(body_mass_g),
+              max_wt = max(body_mass_g))
+```
+
+
+# A word on factors  
+
+You need to use 'factors' if you have categories that look like numbers. You don't want a line with a slope in the following scenario: you want to know if there are differences in categories.  
+
+```{r}
+plot(salinity_ppt ~ site, fish_wq)
+
+# if we don't use factors:  
+fit5 <- lm(salinity_ppt ~ site, fish_wq)
+summary(fit5)
+# we get an overall slope and intercept
+
+plot(fit5)
+
+
+fit6 <- lm(salinity_ppt ~ as.factor(site), fish_wq)
+summary(fit6)
+# different estimates for each site
+
+anova(fit6)
+
+# alternately:
+summary(aov(salinity_ppt ~ as.factor(site), fish_wq))
+```

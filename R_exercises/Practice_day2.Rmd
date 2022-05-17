@@ -1,0 +1,121 @@
+---
+title: "One big practice file: Day 2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      message = FALSE)
+```
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(lubridate)
+library(broom)
+```
+
+
+
+# Read in files  
+
+```{r}
+# penguins
+data(penguins)  # from the palmerpenguins package
+
+# fish
+fish_wq <- read.csv(here::here("data", "GNDfish_wq.csv"))
+fish_sites <- read.csv(here::here("data", "GNDfish_sites.csv"))
+fish_lengths <- read.csv(here::here("data", "GNDfish_lengths.csv"))
+
+# bcwq
+bc_jan <- read.csv(here::here("data", "GNDBCWQ012422.csv"),
+                   skip = 8)
+bc_feb <- read.csv(here::here("data", "GNDBCWQ022422.csv"),
+                   skip = 8)
+
+# clean up bcwq
+bcwq <- bind_rows(bc_jan, bc_feb) 
+names(bcwq) <- c("Date", "Time", "TimeSec",
+                 "Site", "Depth", "DO_pct",
+                 "DO_mgl", "pressure", "Sal",
+                 "SpCond", "Turb", "Wiper",
+                 "pH", "pH_mV", "Temp",
+                 "Battery", "CablePwr")
+
+bcwq <- bcwq %>% 
+    mutate(DateTime = mdy_hms(paste(Date, Time)),   # this had to come before the date conversion itself
+           Date = mdy(Date)) %>% 
+    select(Date, DateTime, Depth, DO_pct, DO_mgl, Sal,
+           SpCond, Turb, pH, Temp, Battery)
+```
+
+
+
+## On your data  
+
+**Add your data files to the mix here too!** No better way to learn a new skill than to apply it to the thing **you've** been needing it for! And if it's not working on your dataset, this workshop is a great place to get help.  
+
+```{r}
+
+
+```
+
+
+
+# Practice regression - and assessing assumptions   
+
+## Ask a question  
+
+Some questions you might answer:  
+
++  Is `body_mass_g` well-predicted by `flipper_length_mm` in Adelie penguins? If so, what is that relationship?    
++  What if you add in `bill_length_mm`, `bill_depth_mm`, and/or `sex`?  
++  Is there a relationship between `do_mgl` and `water_temp_c` in the `fish_wq` dataset?  
++  Does `water_temp_c` differ between seasons in the `fish_wq` dataset?  
+
+
+How would you approach each of these questions? Before writing any code, write down and draw a picture of what you expect the relationship (if there is one) to look like.  
+
+## EDA  
+
+Make a couple of plots of the variables you plan to use, so you know what you're getting into.  
+
+```{r}
+
+
+```
+
+
+## Code the model  
+
+Do you want to use `lm()`? Would `aov()` work in your situation?  
+
+```{r}
+
+
+```
+
+
+## Check assumptions  
+
++  **L**: linear relationship between your response and predictor(s)  
++  **I**: independent errors (residuals)  
++  **N**: normally distributed errors (residuals)  
++  **E**: equal variance of errors (residuals)  
+
+```{r}
+
+
+```
+
+
+## Look at model output  
+
+NOW think about p-values, slopes, and standard errors. Pull out the information you would report in a paper.  
+
+```{r}
+
+
+```
+

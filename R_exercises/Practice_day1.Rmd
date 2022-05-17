@@ -1,5 +1,5 @@
 ---
-title: "One big practice file"
+title: "One big practice file: Day 1"
 output: html_document
 ---
 
@@ -153,7 +153,7 @@ To `fish_wq` and/or the `bcwq` data frames, add a column for temperature in Fahr
 
 
 
-To the `penguins` data frame, add columns for bill length/depth and/or flipper length in inches; or maybe body mass in pounds.  
+To the `penguins` data frame, add columns for bill length/depth and/or flipper length in inches; or maybe body mass in pounds. (This won't be the last time you have to do an internet search to find conversion factors....)  
 
 ```{r}
 

@@ -9,12 +9,10 @@ output:
       collapsed: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
-# (updated: `r Sys.Date()`)
+
+# (updated: 2022-05-18)
 
 ***  
 

@@ -36,6 +36,20 @@ rm(test_bind)
 veg_all <- bind_rows(veg2018, veg2019, veg2020)
 ```
 
+
+```{r}
+veg2018b <- veg2018 %>% 
+    select(Date, Lat, Long, everything())
+
+veg2018c <- veg2018b[1:5, ]
+
+veg2019c <- veg2019[1:5, ]
+
+bind1 <- rbind(veg2018c, veg2019c)
+bind2 <- bind_rows(veg2018c, veg2019c)
+```
+
+
 `bind_rows()` also works on a list. Here, we'll create a list from the data frames we've already read in. A real-world use-case would be, you write a 'for loop' to read in several files, as components of a list.  
 
 ```{r}

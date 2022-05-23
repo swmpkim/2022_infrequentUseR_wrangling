@@ -85,6 +85,25 @@ fish_with_extras %>%
     knitr::kable()
 ```
 
+```{r}
+counts_long <- lengths %>% 
+    group_by(collection_id, species) %>% 
+    summarize(n = n())
+```
+
+New column: present. 1 when n >0. 0 when n == 0. 
+
+ifelse(n > 0, 1, 0)
+case_when
+
+```{r}
+pa_long <- counts_long %>% 
+    mutate(present = case_when(n > 0 ~ 1,
+                               n == 0 ~ 0,
+                               TRUE ~ 999))
+```
+
+
 
 # Pivot to a wider format  
 
@@ -122,6 +141,30 @@ counts_wide <- lengths %>%
                 values_from = n,
                 values_fill = 0)
 ```
+
+```{r}
+pa_wide <- counts_wide %>% 
+    mutate(`Leiostomus xanthurus` = case_when(`Leiostomus xanthurus` > 0 ~ 1,
+                                              TRUE ~ 0))
+
+# commented out so I don't accidentally run later
+
+# pa_wide <- counts_wide %>% 
+#     mutate(across(.cols = c(2:10),
+#                   ~ case_when( . > 0 ~ 1,
+#                                TRUE ~ 0)
+#     )
+#     )
+        
+```
+
+```{r}
+# from ?decostand, details, method:
+# pa: scale x to presence/absence scale (0/1)
+
+pa_wide <- vegan::decostand(counts_wide[2:10], method = "pa")
+```
+
 
 ```{r, eval = FALSE}
 View(counts_wide)

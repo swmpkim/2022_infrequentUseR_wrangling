@@ -1,5 +1,5 @@
 ---
-title: "One big practice file: Day 2"
+title: "Statistics: Running and exploring outputs"
 output: html_document
 ---
 
@@ -94,6 +94,7 @@ For simplicity, we'll exclude rows where DO_mgl is greater than 12. In the real 
 ```{r}
 bcwq_qaqc <- bcwq %>% 
     filter(DO_mgl < 12)
+plot(bcwq_qaqc$DO_mgl)
 ```
 
 
@@ -147,6 +148,7 @@ x <- seq(from = 1, to = 50, length.out = 1000)
 y <- 2*(x^2) + x - rnorm(n = length(x), mean = 10, sd = 100)
 plot(y ~ x)
 fit2 <- lm(y ~ x)
+hist(residuals(fit2), breaks = 20)
 plot(fit2)
 ```
 

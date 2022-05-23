@@ -32,6 +32,7 @@ Remember subsetting with square brackets? This is a situation where that's poten
 ```{r}
 bc_test <- read.csv(here::here("data", "GNDBCWQ012422.csv"))
 str_which(bc_test[ , 1], "Date") # from the stringr package. grep is comparable in base R.
+
 ```
 
 Now we've found it. Notice that `read.csv()` uses the first row of your file as headers by default, and we didn't turn that off: so row 8 in our data frame is actually row 9 of our .csv file, and we want to skip 8 rows to make that one the header.  
@@ -179,6 +180,12 @@ Let's actually fix this in `bc_all2`, then re-make `bc_daily2`.
 bc_all2 <- bc_all2 %>% 
     mutate(Date = mdy(Date))
 glimpse(bc_all2)
+
+bc_all2 <- bc_all2 %>% 
+    mutate(Date = as.character(Date),
+           DateTime = paste(Date, Time),
+           DateTime = ymd_hms(DateTime),
+           Date = ymd(Date))
 
 bc_daily2 <- bc_all2 %>% 
     group_by(Date) %>% 
